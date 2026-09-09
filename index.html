@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Octavian Alexandru — Full Stack Developer</title>
+  <meta name="description" content="Portfolio di Octavian Alexandru, Full Stack Developer. Progetti, esperienza e competenze." />
+  <meta name="theme-color" content="#07070c" />
+  <meta name="color-scheme" content="dark" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Octavian Alexandru — Full Stack Developer" />
+  <meta property="og:description" content="Portfolio di Octavian Alexandru, Full Stack Developer. Progetti, esperienza e competenze." />
+  <meta property="og:image" content="assets/img/og-cover.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="./" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Vai al contenuto</a>
+
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__grid"></div>
+    <div class="ambient__blob ambient__blob--1"></div>
+    <div class="ambient__blob ambient__blob--2"></div>
+    <div class="ambient__blob ambient__blob--3"></div>
+  </div>
+
+  <header class="nav" id="nav" data-nav>
+    <div class="container nav__inner">
+      <a class="nav__brand" href="#top">
+        <span class="nav__brand-mark" aria-hidden="true">OA</span>
+        <span>Octavian Alexandru</span>
+      </a>
+
+      <nav class="nav__links" id="nav-links" aria-label="Navigazione principale">
+        <a class="nav__link" href="#about" data-i18n="nav.about">Chi sono</a>
+        <a class="nav__link" href="#experience" data-i18n="nav.experience">Esperienza</a>
+        <a class="nav__link" href="#skills" data-i18n="nav.skills">Competenze</a>
+        <a class="nav__link" href="#projects" data-i18n="nav.projects">Progetti</a>
+        <a class="nav__link" href="#contact" data-i18n="nav.contact">Contatti</a>
+
+        <div class="nav__actions">
+          <div class="lang-switch" role="group" aria-label="Seleziona lingua">
+            <button type="button" class="lang-switch__opt is-active" data-lang="it">IT</button>
+            <button type="button" class="lang-switch__opt" data-lang="en">EN</button>
+          </div>
+        </div>
+      </nav>
+
+      <button class="nav__toggle" id="nav-toggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="nav-links">
+        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <div class="container hero__inner">
+        <p class="hero__badge" data-reveal>
+          <span class="hero__badge-dot" aria-hidden="true"></span>
+          <span data-i18n="hero.badge">Disponibile per nuove opportunità</span>
+        </p>
+
+        <h1 data-reveal>
+          <span class="hero__greeting" data-i18n="hero.greeting">Ciao, sono</span>
+          <span class="hero__name text-gradient">Octavian Alexandru</span>
+        </h1>
+
+        <p class="hero__role" data-reveal data-i18n="hero.role">Full Stack Developer</p>
+
+        <p class="hero__tagline" data-reveal data-i18n="hero.tagline">
+          Progetto e realizzo applicazioni web solide e curate nei dettagli, dal backend all'interfaccia,
+          con particolare attenzione a performance, accessibilità ed esperienza utente.
+        </p>
+
+        <div class="hero__actions" data-reveal>
+          <a class="btn btn--primary" href="#projects" data-i18n="hero.ctaPrimary">Guarda i progetti</a>
+          <a class="btn btn--ghost" href="#contact" data-i18n="hero.ctaSecondary">Contattami</a>
+        </div>
+
+        <div class="hero__meta" data-reveal>
+          <div class="hero__meta-item">
+            <span class="hero__meta-value" data-i18n="hero.meta1Value">3+</span>
+            <span class="hero__meta-label" data-i18n="hero.meta1Label">Anni di esperienza</span>
+          </div>
+          <div class="hero__meta-item">
+            <span class="hero__meta-value" data-i18n="hero.meta2Value">10+</span>
+            <span class="hero__meta-label" data-i18n="hero.meta2Label">Progetti realizzati</span>
+          </div>
+          <div class="hero__meta-item">
+            <span class="hero__meta-value" data-i18n="hero.meta3Value">IT</span>
+            <span class="hero__meta-label" data-i18n="hero.meta3Label">Lavoro da remoto</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-hint" aria-hidden="true">
+        <span class="scroll-hint__line"></span>
+        <span data-i18n="hero.scrollHint">Scorri</span>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow" data-i18n="about.eyebrow">Chi sono</p>
+          <h2 class="section-title" data-i18n="about.title">Un po' di background su di me</h2>
+        </div>
+
+        <div class="about__grid">
+          <div class="about__text" data-reveal>
+            <p data-i18n="about.p1">
+              Sono uno sviluppatore appassionato di tecnologia web, con un approccio pragmatico alla scrittura
+              del codice: soluzioni semplici, manutenibili e pensate per durare nel tempo.
+            </p>
+            <p data-i18n="about.p2">
+              Mi piace lavorare su tutto lo stack, dalla progettazione delle API alla cura dei dettagli
+              nell'interfaccia, e mi trovo bene sia in piccoli team che in progetti personali.
+            </p>
+            <p data-i18n="about.p3">
+              Al di fuori del lavoro, seguo con curiosità l'evoluzione degli strumenti di sviluppo e mi piace
+              sperimentare con nuove tecnologie nei miei progetti personali.
+            </p>
+          </div>
+
+          <div class="about__stats" data-reveal>
+            <div class="card stat-card">
+              <p class="stat-card__value">10+</p>
+              <p class="stat-card__label" data-i18n="about.stat1">Progetti completati</p>
+            </div>
+            <div class="card stat-card">
+              <p class="stat-card__value">3+</p>
+              <p class="stat-card__label" data-i18n="about.stat2">Anni di esperienza</p>
+            </div>
+            <div class="card stat-card">
+              <p class="stat-card__value">100%</p>
+              <p class="stat-card__label" data-i18n="about.stat3">Remote-friendly</p>
+            </div>
+            <div class="card stat-card">
+              <p class="stat-card__value">IT / EN</p>
+              <p class="stat-card__label" data-i18n="about.stat4">Lingue di lavoro</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow" data-i18n="experience.eyebrow">Percorso</p>
+          <h2 class="section-title" data-i18n="experience.title">Esperienza professionale</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item" data-reveal>
+            <div class="timeline-item__head">
+              <h3 class="timeline-item__role" data-i18n="experience.item1.role">Full Stack Developer</h3>
+              <span class="timeline-item__company" data-i18n="experience.item1.company">Nome Azienda</span>
+              <span class="timeline-item__period" data-i18n="experience.item1.period">2023 — Presente</span>
+            </div>
+            <p class="timeline-item__desc" data-i18n="experience.item1.desc">
+              Sviluppo e manutenzione di applicazioni web full stack, dalla progettazione delle API
+              all'implementazione dell'interfaccia utente, in collaborazione con team di prodotto e design.
+            </p>
+            <div class="tag-row">
+              <span class="tag">JavaScript</span>
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+            </div>
+          </article>
+
+          <article class="timeline-item" data-reveal>
+            <div class="timeline-item__head">
+              <h3 class="timeline-item__role" data-i18n="experience.item2.role">Junior Developer</h3>
+              <span class="timeline-item__company" data-i18n="experience.item2.company">Nome Azienda</span>
+              <span class="timeline-item__period" data-i18n="experience.item2.period">2022 — 2023</span>
+            </div>
+            <p class="timeline-item__desc" data-i18n="experience.item2.desc">
+              Contributo allo sviluppo di funzionalità, correzione di bug e miglioramento delle
+              prestazioni su applicazioni web esistenti.
+            </p>
+            <div class="tag-row">
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Git</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow" data-i18n="skills.eyebrow">Stack tecnico</p>
+          <h2 class="section-title" data-i18n="skills.title">Competenze</h2>
+        </div>
+
+        <div class="skills__grid">
+          <div class="card skill-group" data-reveal>
+            <h3 class="skill-group__title" data-i18n="skills.group1">Linguaggi</h3>
+            <div class="skill-group__chips">
+              <span class="chip">JavaScript</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip">PHP</span>
+              <span class="chip">Python</span>
+              <span class="chip">SQL</span>
+            </div>
+          </div>
+
+          <div class="card skill-group" data-reveal>
+            <h3 class="skill-group__title" data-i18n="skills.group2">Framework &amp; librerie</h3>
+            <div class="skill-group__chips">
+              <span class="chip">React</span>
+              <span class="chip">Node.js</span>
+              <span class="chip">Express</span>
+              <span class="chip">Vue</span>
+            </div>
+          </div>
+
+          <div class="card skill-group" data-reveal>
+            <h3 class="skill-group__title" data-i18n="skills.group3">Strumenti &amp; piattaforme</h3>
+            <div class="skill-group__chips">
+              <span class="chip">Git</span>
+              <span class="chip">Docker</span>
+              <span class="chip">Figma</span>
+              <span class="chip">Linux</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow" data-i18n="projects.eyebrow">Selezione lavori</p>
+          <h2 class="section-title" data-i18n="projects.title">Progetti</h2>
+          <p class="section-lede" data-i18n="projects.lede">
+            Alcuni dei progetti a cui ho lavorato di recente.
+          </p>
+        </div>
+
+        <div class="projects__grid">
+          <article class="card project-card" data-reveal>
+            <div class="project-card__glow" aria-hidden="true"></div>
+            <div class="project-card__top">
+              <span class="project-card__icon" aria-hidden="true">01</span>
+              <div class="project-card__links">
+                <a class="icon-btn" href="#" aria-label="Codice sorgente su GitHub">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+                </a>
+                <a class="icon-btn" href="#" aria-label="Apri demo live">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-card__title" data-i18n="projects.item1.title">Nome progetto</h3>
+            <p class="project-card__desc" data-i18n="projects.item1.desc">
+              Breve descrizione del progetto: problema risolto, ruolo avuto e risultato ottenuto.
+            </p>
+            <div class="tag-row">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+            </div>
+          </article>
+
+          <article class="card project-card" data-reveal>
+            <div class="project-card__glow" aria-hidden="true"></div>
+            <div class="project-card__top">
+              <span class="project-card__icon" aria-hidden="true">02</span>
+              <div class="project-card__links">
+                <a class="icon-btn" href="#" aria-label="Codice sorgente su GitHub">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+                </a>
+                <a class="icon-btn" href="#" aria-label="Apri demo live">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-card__title" data-i18n="projects.item2.title">Nome progetto</h3>
+            <p class="project-card__desc" data-i18n="projects.item2.desc">
+              Breve descrizione del progetto: problema risolto, ruolo avuto e risultato ottenuto.
+            </p>
+            <div class="tag-row">
+              <span class="tag">TypeScript</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+          </article>
+
+          <article class="card project-card" data-reveal>
+            <div class="project-card__glow" aria-hidden="true"></div>
+            <div class="project-card__top">
+              <span class="project-card__icon" aria-hidden="true">03</span>
+              <div class="project-card__links">
+                <a class="icon-btn" href="#" aria-label="Codice sorgente su GitHub">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+                </a>
+                <a class="icon-btn" href="#" aria-label="Apri demo live">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-card__title" data-i18n="projects.item3.title">Nome progetto</h3>
+            <p class="project-card__desc" data-i18n="projects.item3.desc">
+              Breve descrizione del progetto: problema risolto, ruolo avuto e risultato ottenuto.
+            </p>
+            <div class="tag-row">
+              <span class="tag">PHP</span>
+              <span class="tag">MySQL</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow" data-i18n="education.eyebrow">Formazione</p>
+          <h2 class="section-title" data-i18n="education.title">Percorso di studi</h2>
+        </div>
+
+        <div class="education__list">
+          <div class="card education-item" data-reveal>
+            <div>
+              <p class="education-item__degree" data-i18n="education.item1.degree">Titolo di studio</p>
+              <p class="education-item__school" data-i18n="education.item1.school">Istituto</p>
+            </div>
+            <span class="education-item__period" data-i18n="education.item1.period">20XX — 20XX</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="card contact__card" data-reveal>
+          <p class="eyebrow" data-i18n="contact.eyebrow" style="justify-content:center">Contatti</p>
+          <h2 class="contact__title text-gradient" data-i18n="contact.title">Parliamo del tuo progetto</h2>
+          <p class="contact__lede" data-i18n="contact.lede">
+            Sono sempre interessato a nuove opportunità e collaborazioni.
+            Scrivimi pure: rispondo il prima possibile.
+          </p>
+
+          <div class="contact__actions">
+            <a class="btn btn--primary" href="mailto:octavian.alexandru.dev@gmail.com" data-i18n="contact.ctaEmail">
+              Scrivimi una email
+            </a>
+          </div>
+
+          <div class="contact__socials">
+            <a class="social-link" href="mailto:octavian.alexandru.dev@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+              <span>Email</span>
+            </a>
+            <a class="social-link" href="https://www.linkedin.com/in/octavian-alexandru-dev" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4v1.5A5 5 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a class="social-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p><span id="year"></span> Octavian Alexandru. <span data-i18n="footer.rights">Tutti i diritti riservati.</span></p>
+      <a class="back-to-top" href="#top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+        <span data-i18n="footer.top">Torna su</span>
+      </a>
+    </div>
+  </footer>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

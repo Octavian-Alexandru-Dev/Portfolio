@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pagina non trovata — Octavian Alexandru</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#07070c" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .not-found {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+    .not-found__code {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(64px, 14vw, 140px);
+      font-weight: 700;
+      line-height: 1;
+    }
+    .not-found__text {
+      color: var(--text-muted);
+      margin-block: 16px 32px;
+      max-width: 46ch;
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__grid"></div>
+    <div class="ambient__blob ambient__blob--1"></div>
+    <div class="ambient__blob ambient__blob--2"></div>
+  </div>
+
+  <main class="not-found">
+    <p class="not-found__code text-gradient">404</p>
+    <p class="not-found__text">La pagina che stai cercando non esiste o è stata spostata.</p>
+    <a class="btn btn--primary" href="/">Torna alla home</a>
+  </main>
+</body>
+</html>
