@@ -1,0 +1,6 @@
+# Copia questo file in `.bws-token` (root del repo, già escluso da git) per
+# far leggere le credenziali FTP da Bitwarden Secrets Manager invece che da
+# .ftp-credentials. Richiede la CLI `bws` (`cargo install bws`).
+BWS_ACCESS_TOKEN='<access token del machine account, da Bitwarden>'
+BWS_PROJECT_ID='<id del progetto "Portfolio" in Secrets Manager>'
+BWS_SERVER_URL='https://vault.bitwarden.eu'
