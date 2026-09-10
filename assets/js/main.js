@@ -152,10 +152,30 @@
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
   }
 
+  function initExperienceYears() {
+    // Inizio della carriera professionale (Move Solutions, luglio 2022 — vedi
+    // sezione Esperienza): calcolato invece di scritto a mano, così il numero
+    // resta corretto anche se la pagina non viene più toccata.
+    var CAREER_START = new Date(2022, 6, 1);
+    var now = new Date();
+
+    var years = now.getFullYear() - CAREER_START.getFullYear();
+    var hadAnniversaryThisYear =
+      now.getMonth() > CAREER_START.getMonth() ||
+      (now.getMonth() === CAREER_START.getMonth() && now.getDate() >= CAREER_START.getDate());
+    if (!hadAnniversaryThisYear) years -= 1;
+
+    var label = Math.max(years, 1) + "+";
+    document.querySelectorAll('[data-dynamic="years-experience"]').forEach(function (el) {
+      el.textContent = label;
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initLanguage();
     initNav();
     initReveal();
     initFooterYear();
+    initExperienceYears();
   });
 })();

@@ -19,7 +19,6 @@ window.translations = {
       "I build scalable, secure backends, specializing in Go and TypeScript: from cloud microservices to CI/CD pipelines, with an approach focused on testing and reliability.",
     "hero.ctaPrimary": "View projects",
     "hero.ctaSecondary": "Get in touch",
-    "hero.meta1Value": "4+",
     "hero.meta1Label": "Years of experience",
     "hero.meta2Value": "3",
     "hero.meta2Label": "Professional roles",
