@@ -11,15 +11,19 @@
 set -uo pipefail
 
 REPO_ROOT="$(git rev-parse --show-toplevel)"
-CRED_FILE="$REPO_ROOT/.ftp-credentials"
 
-if [ ! -f "$CRED_FILE" ]; then
-  echo "FTP deploy: file .ftp-credentials non trovato in $REPO_ROOT, salto il deploy." >&2
-  exit 0
+# Se invocato tramite `bws run` (vedi .githooks/pre-push), FTP_HOST/
+# FTP_USERNAME/FTP_PASSWORD sono già nell'ambiente: usale così come sono.
+# Altrimenti, fallback al file locale .ftp-credentials.
+if [ -z "${FTP_HOST:-}" ] || [ -z "${FTP_USERNAME:-}" ] || [ -z "${FTP_PASSWORD:-}" ]; then
+  CRED_FILE="$REPO_ROOT/.ftp-credentials"
+  if [ ! -f "$CRED_FILE" ]; then
+    echo "FTP deploy: né Bitwarden Secrets Manager né .ftp-credentials sono disponibili, salto il deploy." >&2
+    exit 0
+  fi
+  # shellcheck disable=SC1090
+  source "$CRED_FILE"
 fi
-
-# shellcheck disable=SC1090
-source "$CRED_FILE"
 REMOTE_DIR="${FTP_REMOTE_DIR:-/}"
 
 cd "$REPO_ROOT"

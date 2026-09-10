@@ -14,6 +14,21 @@ while read -r local_ref local_sha remote_ref remote_sha; do
 
   if [ "$remote_ref" = "refs/heads/main" ]; then
     echo "pre-push: push su main, eseguo il deploy FTP..."
-    "$REPO_ROOT/scripts/ftp-deploy.sh"
+    if [ -f "$REPO_ROOT/.bws-token" ] && command -v bws >/dev/null 2>&1; then
+      # Credenziali da Bitwarden Secrets Manager (progetto "Portfolio"):
+      # bws inietta FTP_HOST/FTP_USERNAME/FTP_PASSWORD/FTP_REMOTE_DIR come
+      # variabili d'ambiente nel processo figlio, senza mai scriverle su disco.
+      (
+        # shellcheck disable=SC1091
+        source "$REPO_ROOT/.bws-token"
+        bws run --project-id "$BWS_PROJECT_ID" --access-token "$BWS_ACCESS_TOKEN" \
+          --server-url "$BWS_SERVER_URL" \
+          -- "$REPO_ROOT/scripts/ftp-deploy.sh"
+      )
+    else
+      # Fallback: nessun accesso a Bitwarden su questa macchina, usa il file
+      # locale .ftp-credentials (letto direttamente da ftp-deploy.sh).
+      "$REPO_ROOT/scripts/ftp-deploy.sh"
+    fi
   fi
 done

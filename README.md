@@ -59,12 +59,23 @@ The site is a static bundle, so deployment is a plain file upload. Publishing is
 
 A `pre-push` hook (`.githooks/pre-push`) uploads every file to Tophost via FTP whenever you `git push` to `main`, running `scripts/ftp-deploy.sh`. It only ever runs locally, on whichever machine has it configured — never in CI, since Tophost blocks FTP connections from GitHub Actions runner IPs.
 
+Credentials are pulled from **Bitwarden Secrets Manager** (project `Portfolio`) when available, so the actual FTP password only needs to be entered once, ever — not copy-pasted onto every machine. A local, git-ignored file is kept as a fallback for machines without Bitwarden access.
+
 One-time setup on a given machine:
 
-1. Copy `.ftp-credentials.example` to `.ftp-credentials` (already git-ignored, never committed) and fill in the real Tophost FTP host/username/password.
-2. Enable the hook: `git config core.hooksPath .githooks`.
+1. Enable the hook: `git config core.hooksPath .githooks`.
+2. **Preferred — Bitwarden Secrets Manager:**
+   - Install the CLI: `cargo install bws` (or download a prebuilt binary from the [bitwarden/sdk-sm releases](https://github.com/bitwarden/sdk-sm/releases)).
+   - Create `.bws-token` in the repo root (git-ignored, never committed):
+     ```
+     BWS_ACCESS_TOKEN='<machine account access token>'
+     BWS_PROJECT_ID='<Portfolio project id>'
+     BWS_SERVER_URL='https://vault.bitwarden.eu'
+     ```
+   - The hook detects this file automatically and runs the deploy through `bws run`, which injects `FTP_HOST`/`FTP_USERNAME`/`FTP_PASSWORD`/`FTP_REMOTE_DIR` as environment variables without ever writing them to disk.
+3. **Fallback — local file:** if `.bws-token` is absent (or `bws` isn't installed), copy `.ftp-credentials.example` to `.ftp-credentials` and fill in the real values. `scripts/ftp-deploy.sh` uses whichever source provided the variables.
 
-From then on, every push to `main` re-publishes the whole site automatically. Without this setup, `git push` still works normally — the hook just no-ops if `.ftp-credentials` is missing.
+From then on, every push to `main` re-publishes the whole site automatically. Without either setup, `git push` still works normally — the hook just no-ops with a message if no credentials are available.
 
 ### Manual (fallback)
 
