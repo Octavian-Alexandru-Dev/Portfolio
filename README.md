@@ -72,7 +72,7 @@ One-time setup on a given machine:
      BWS_PROJECT_ID='<Portfolio project id>'
      BWS_SERVER_URL='https://vault.bitwarden.eu'
      ```
-   - The hook detects this file automatically and runs the deploy through `bws run`, which injects `FTP_HOST`/`FTP_USERNAME`/`FTP_PASSWORD`/`FTP_REMOTE_DIR` as environment variables without ever writing them to disk.
+   - The hook detects this file automatically and runs the deploy through `bws run`, which injects `FTP_HOST`/`FTP_USERNAME`/`FTP_PASSWORD` as environment variables without ever writing them to disk.
 3. **Fallback — local file:** if `.bws-token` is absent (or `bws` isn't installed), copy `.ftp-credentials.example` to `.ftp-credentials` and fill in the real values. `scripts/ftp-deploy.sh` uses whichever source provided the variables.
 
 From then on, every push to `main` re-publishes the whole site automatically. Without either setup, `git push` still works normally — the hook just no-ops with a message if no credentials are available.
@@ -80,7 +80,7 @@ From then on, every push to `main` re-publishes the whole site automatically. Wi
 ### Manual (fallback)
 
 1. Connect to the Tophost space with an FTP client (e.g. FileZilla) using the credentials from the Tophost control panel.
-2. Upload `index.html`, `404.html`, `robots.txt` and the whole `assets/` folder into the site's web root (`/htdocs`), **keeping the folder structure**.
+2. Upload `index.html`, `404.html`, `robots.txt` and the whole `assets/` folder into the site's web root (the FTP account lands there directly — no subfolder to navigate into), **keeping the folder structure**.
 3. Make sure `index.html` ends up directly in the web root, not inside a subfolder, so it's served at the domain root.
 
 Either way, the site works with no further configuration once uploaded — there's no database and no server-side code to set up.

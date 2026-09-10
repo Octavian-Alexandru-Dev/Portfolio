@@ -16,8 +16,8 @@ while read -r local_ref local_sha remote_ref remote_sha; do
     echo "pre-push: push su main, eseguo il deploy FTP..."
     if [ -f "$REPO_ROOT/.bws-token" ] && command -v bws >/dev/null 2>&1; then
       # Credenziali da Bitwarden Secrets Manager (progetto "Portfolio"):
-      # bws inietta FTP_HOST/FTP_USERNAME/FTP_PASSWORD/FTP_REMOTE_DIR come
-      # variabili d'ambiente nel processo figlio, senza mai scriverle su disco.
+      # bws inietta FTP_HOST/FTP_USERNAME/FTP_PASSWORD come variabili
+      # d'ambiente nel processo figlio, senza mai scriverle su disco.
       (
         # shellcheck disable=SC1091
         source "$REPO_ROOT/.bws-token"

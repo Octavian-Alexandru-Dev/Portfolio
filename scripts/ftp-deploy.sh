@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Carica il sito (file statici) su Tophost via FTPS.
 # Richiede il file .ftp-credentials nella root del repo (mai committato, vedi
-# .gitignore) con le variabili FTP_HOST, FTP_USERNAME, FTP_PASSWORD,
-# FTP_REMOTE_DIR.
+# .gitignore) con le variabili FTP_HOST, FTP_USERNAME, FTP_PASSWORD.
+# L'account FTP atterra già nella web root: nessuna sottocartella remota da
+# specificare (vedi menu-masseria per lo stesso comportamento verificato).
 #
 # Un fallimento di rete/FTP non fa fallire questo script (vedi `upload`):
 # un deploy non riuscito non deve mai bloccare `git push` (che lo invoca
@@ -24,7 +25,6 @@ if [ -z "${FTP_HOST:-}" ] || [ -z "${FTP_USERNAME:-}" ] || [ -z "${FTP_PASSWORD:
   # shellcheck disable=SC1090
   source "$CRED_FILE"
 fi
-REMOTE_DIR="${FTP_REMOTE_DIR:-/}"
 
 cd "$REPO_ROOT"
 
@@ -38,7 +38,7 @@ upload() {
   # condiviso non specifico per questo dominio (vedi menu-masseria per
   # riferimento allo stesso comportamento).
   curl -sS --connect-timeout 10 --ssl-reqd -k --tlsv1.2 --tls-max 1.2 --ftp-create-dirs \
-    -T "$f" "ftp://${FTP_HOST}${REMOTE_DIR}/$f" \
+    -T "$f" "ftp://${FTP_HOST}/$f" \
     --user "${FTP_USERNAME}:${FTP_PASSWORD}"
 }
 
@@ -74,4 +74,4 @@ if [ "$FAILED" = "1" ]; then
   exit 0
 fi
 
-echo "FTP deploy: sito pubblicato su ${FTP_HOST}${REMOTE_DIR}."
+echo "FTP deploy: sito pubblicato su ${FTP_HOST}."
