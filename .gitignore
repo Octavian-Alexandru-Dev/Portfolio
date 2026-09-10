@@ -7,3 +7,4 @@ Thumbs.db
 dist/
 .ftp-credentials
 .bws-token
+*.env
