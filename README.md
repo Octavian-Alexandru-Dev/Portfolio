@@ -4,7 +4,7 @@ Personal portfolio and resume landing page, built as a static site — no build 
 
 ![Portfolio preview](docs/preview.png)
 
-**Live preview:** _add the production URL here once deployed_
+**Live preview:** [octavian-alexandru-dev.it](https://octavian-alexandru-dev.it)
 
 ## Stack
 
@@ -53,14 +53,26 @@ Italian is the source language and lives directly in `index.html`. Every transla
 
 ## Deployment (FTP — Tophost)
 
-The site is a static bundle, so deployment is a plain file upload:
+The site is a static bundle, so deployment is a plain file upload. Publishing is automated with a local git hook:
+
+### Automatic (recommended)
+
+A `pre-push` hook (`.githooks/pre-push`) uploads every file to Tophost via FTP whenever you `git push` to `main`, running `scripts/ftp-deploy.sh`. It only ever runs locally, on whichever machine has it configured — never in CI, since Tophost blocks FTP connections from GitHub Actions runner IPs.
+
+One-time setup on a given machine:
+
+1. Copy `.ftp-credentials.example` to `.ftp-credentials` (already git-ignored, never committed) and fill in the real Tophost FTP host/username/password.
+2. Enable the hook: `git config core.hooksPath .githooks`.
+
+From then on, every push to `main` re-publishes the whole site automatically. Without this setup, `git push` still works normally — the hook just no-ops if `.ftp-credentials` is missing.
+
+### Manual (fallback)
 
 1. Connect to the Tophost space with an FTP client (e.g. FileZilla) using the credentials from the Tophost control panel.
-2. Upload the contents of this repository into the site's web root (usually `public_html/` or `httpdocs/`), **keeping the folder structure** (`assets/` must stay alongside `index.html`).
+2. Upload `index.html`, `404.html`, `robots.txt` and the whole `assets/` folder into the site's web root (`/htdocs`), **keeping the folder structure**.
 3. Make sure `index.html` ends up directly in the web root, not inside a subfolder, so it's served at the domain root.
-4. Once uploaded, the site works with no further configuration — there's no database and no server-side code to set up.
 
-To publish an update: change the files locally, verify them (`npm run dev`), then re-upload only the files that changed.
+Either way, the site works with no further configuration once uploaded — there's no database and no server-side code to set up.
 
 ## Browser support
 

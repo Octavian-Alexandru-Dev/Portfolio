@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Ad ogni push sul branch main, pubblica l'intero sito su Tophost via FTP.
+# Attivo solo su questa macchina (git config core.hooksPath .githooks); non
+# pensato per girare in CI (Tophost blocca l'FTP dagli IP dei runner GitHub
+# Actions — vedi lo stesso pattern in menu-masseria).
+set -euo pipefail
+
+ZERO="0000000000000000000000000000000000000000"
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ -z "$local_sha" ] && continue
+  [ "$local_sha" = "$ZERO" ] && continue  # cancellazione di branch/tag
+
+  if [ "$remote_ref" = "refs/heads/main" ]; then
+    echo "pre-push: push su main, eseguo il deploy FTP..."
+    "$REPO_ROOT/scripts/ftp-deploy.sh"
+  fi
+done
